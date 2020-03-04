@@ -1,0 +1,129 @@
+.jumbotron {
+    background-image: url("../img/home-bg.jpeg");
+    background-size: cover;
+    height: 100%;
+}
+
+.responsiveImages {
+    max-width: 100%;
+    height: auto;
+}
+
+.logoSpecial {
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+}
+
+.homeCardImage {
+    width: 100%;
+    height: 14rem;
+    padding: 0.5rem;
+    border-radius: calc(1.25rem - 1px);
+}
+
+.card-title {
+    font-size: 16px !important;
+    font-weight: 700;
+    color: #17a2b8;
+    line-height: 1.35em;
+    height: 34px;
+}
+    .card-title:hover {
+        text-decoration: none !important;
+        color: #138496 !important;
+    }
+
+.description {
+    font-size: 14px;
+    height: 45px;
+}
+
+.product-price {
+    color: #414141;
+    font-weight: 700;
+    font-size: 17px;
+}
+
+#product-price {
+    font-size: 28px;
+    color: red;
+}
+
+#product-details h1 {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+/* Custom page CSS
+-------------------------------------------------- */
+/* Not required for template or sticky footer method. */
+  
+  .footer {
+    background-color: #f5f5f5;
+  }
+
+.getCategoriesContainer {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+
+.stickyListGroup {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 4rem;
+    width: 100%;
+}
+
+.activeItem {
+    z-index: 2;
+    color: #fff;
+    background-color: #17a2b8;
+    border-color: #17a2b8;
+}
+    .activeItem:hover {
+        z-index: 2!important;
+        color: #fff!important;
+        background-color: #17a2b8!important;
+        border-color: #17a2b8!important;
+        opacity: 0.8!important;
+    }
+
+
+.leftAbout {
+    background-image: url('/Upload/about.jpg');
+    background-size: cover;
+}
+
+.about-heading > p {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.about-txt > p {
+    font-size: 18px;
+    text-align: center;
+    color: #4a4a4a;
+}
+
+.about-content-box {
+    padding-top: 100px;
+    padding-bottom: 100px;
+    padding-left: 70px;
+    padding-right: 70px;
+    color: #fff;
+}
+
+.about-bg-layer {
+    background-color: #fff;
+    height: 200%;
+    margin: 0px;
+}
+
+.form-horizontal {
+    width: 100%;
+    display: inherit;
+}

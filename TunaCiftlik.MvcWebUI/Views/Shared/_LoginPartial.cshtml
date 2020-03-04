@@ -1,0 +1,26 @@
+﻿<ul class="navbar-nav my-2 my-lg-0">
+
+    @if (Request.IsAuthenticated)
+    {
+        //kullanıcı login olmuşsa
+        <li class="nav-item">
+            <a class="nav-link card-title" href="/Account"><i class="fas fa-user" aria-hidden="true"></i> @User.Identity.Name </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link card-title" href="/Account/Logout"><i class="fas fa-sign-out-alt" aria-hidden="true"></i> Çıkış</a>
+        </li>
+    }
+    else
+    {
+        //login ve register linklerini çıkar
+        <li class="nav-item  @(ViewContext.RouteData.Values["Action"].ToString() == "Login" ? "active" : "")">
+            <a class="nav-link card-title" href="/Account/Login"><i class="fas fa-sign-in-alt" aria-hidden="true"></i> Giriş</a>
+        </li>
+        <li class="nav-item  @(ViewContext.RouteData.Values["Action"].ToString() == "Register" ? "active" : "")">
+            <a class="nav-link card-title" href="/Account/Register"><i class="fas fa-user-plus" aria-hidden="true"></i> Kayıt Ol</a>
+        </li>
+    }
+
+
+
+</ul>

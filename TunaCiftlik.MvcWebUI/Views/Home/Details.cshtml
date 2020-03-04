@@ -1,0 +1,106 @@
+﻿@using TunaCiftlik.MvcWebUI.Entity;
+@model Product
+@{
+    ViewBag.Title = "Details";
+}
+<div id="product-details" class="container mb-5 mt-5">
+    <div class="row">
+        <div class="col-md-6">
+            <img src="~/Upload/@Model.Image" class="img-fluid rounded">
+        </div>
+        <div class="col-md-6">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>@Model.Name</h1>
+                </div>
+            </div>
+            <div class="row mt-1">
+                <div class="col-md-12">
+
+                    @if (Model.IsApproved)
+                    {
+                        <span class="badge badge-primary">Stokta</span>
+                    }
+                    else
+                    {
+                        <span class="badge badge-danger">Stokta Yok</span>
+                    }
+                    <span class="product-number">@Model.Id</span>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-12">
+                    <div id="description">
+                        @Model.Description
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-md-4">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                    <span class="badge badge-info">@Model.Stock</span>
+                </div>
+                <div id="write-review" class="col-md-4">
+
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-md-12">
+                    <h4 id="product-price">@Model.Price ₺</h4>
+                </div>
+            </div>
+            @if (Model.IsApproved)
+            {
+                <div class="form-group row mt-3">             
+
+                        @using (Html.BeginForm("AddToCart", "Cart", FormMethod.Post, new { @class = "form-horizontal"}))
+                        {
+                             <div class="col-md-2">
+                                <input class="form-control" name="count" type="number" value="1" min="1" max="20" id="inlineFormInputGroup">
+                            </div>
+
+                            <div class="col-md-6">
+                                @Html.HiddenFor(i => i.Id)
+                                <button type="submit" class="btn btn-success">
+                                    <i class="fas fa-cart-plus"></i>
+                                    Sepete Ekle
+                                </button>
+                            </div>
+                           
+                        }
+
+
+                    
+                </div>
+            }
+
+        </div>
+    </div>
+    <!--
+        <div class="row mt-3">
+            <div class="col-md-12">
+                <div class="bd-example bd-example-tabs">
+                    <ul class="nav nav-tabs mb-3" id="pills-tab" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="pills-description-tab" data-toggle="pill" href="#pills-description"
+                               role="tab" aria-controls="pills-description" aria-selected="true">Açıklama</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile"
+                               role="tab" aria-controls="pills-profile" aria-selected="false">Profile</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact"
+                               role="tab" aria-controls="pills-contact" aria-selected="false">Yorum</a>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+
+    </div>-->
+</div>

@@ -1,0 +1,27 @@
+﻿@using TunaCiftlik.MvcWebUI.Models;
+@model IEnumerable<ProductModel>
+<div class="row">
+    @foreach (var urun in Model)
+    {
+        <div class="col-md-4 mb-3 mt-4">
+            <div class="card bg-light">
+                <img src="~/Upload/@urun.Image" class="card-img-top homeCardImage" alt="@urun.Name">
+                <div class="card-body">
+                    <a href="/Home/Details/@urun.Id" class="card-title">@urun.Name</a>
+                    <p class="card-text pt-2 description">
+                        @urun.Description
+                    </p>
+                </div>
+                <div class="card-footer bg-light">
+                    <small class="text-muted product-price">
+
+                        @urun.Price.ToString("c")
+                    </small>
+                    <a href="/Home/Details/@urun.Id" class="btn btn-info btn-sm float-right">
+                        Ürünü İncele <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    }
+</div>

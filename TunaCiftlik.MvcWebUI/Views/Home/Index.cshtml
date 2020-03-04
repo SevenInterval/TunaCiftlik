@@ -1,0 +1,92 @@
+﻿@using TunaCiftlik.MvcWebUI.Models;
+@model IEnumerable<ProductModel>
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<!------ Include the above in your HEAD tag ---------->
+<div class="container" style="max-width: 100%; padding: 0px; margin: 0px;">
+    <!--Carousel Wrapper-->
+    <div id="carousel-example-2" class="carousel slide carousel-fade" data-ride="carousel">
+        <!--Indicators-->
+        <ol class="carousel-indicators">
+            <li data-target="#carousel-example-2" data-slide-to="0" class="active"></li>
+            <li data-target="#carousel-example-2" data-slide-to="1"></li>
+            <li data-target="#carousel-example-2" data-slide-to="2"></li>
+        </ol>
+        <!--/.Indicators-->
+        <!--Slides-->
+        <div class="carousel-inner" role="listbox">
+            <div class="carousel-item active">
+                <div class="view">
+                    <img class="d-block w-100" src="/Upload/navbar1.jpg" alt="First slide">
+                    <div class="mask rgba-black-light"></div>
+                </div>
+                <!--<div class="carousel-caption">
+         <h3 class="h3-responsive">Mutlu Hayvanlar</h3>
+         <p>Sizin için yetiştirdiğimiz mutlu kuzularımızı ve koyunlarımızı görmek iletişime geçin.</p>
+     </div>
+        -->
+            </div>
+            <div class="carousel-item">
+                <!--Mask color-->
+                <div class="view">
+                    <img class="d-block w-100" src="/Upload/navbar3.jpg" alt="Second slide">
+                    <div class="mask rgba-black-strong"></div>
+                </div>
+                <!--
+                <div class="carousel-caption">
+                    <h3 class="h3-responsive">Doğadaki Huzur</h3>
+                    <p>Doğanın kalbinden ilaçsız ve doğal ürünlerimizi mutlaka deneyin.</p>
+                </div>-->
+            </div>
+            <div class="carousel-item">
+                <!--Mask color-->
+                <div class="view">
+                    <img class="d-block w-100" src="/Upload/navbar2.jpg" alt="Third slide">
+                    <div class="mask rgba-black-slight"></div>
+                </div>
+                <!--
+                <div class="carousel-caption">
+                    <h3 class="h3-responsive">Taze Taze Adresinizde</h3>
+                    <p>Siparişinizi verin sizin için topladığımız katkısız ürünlerimizi adresinize gönderelim.</p>
+                </div>
+                    -->
+            </div>
+        </div>
+        <!--/.Slides-->
+        <!--Controls-->
+        <a class="carousel-control-prev" href="#carousel-example-2" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carousel-example-2" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+        <!--/.Controls-->
+    </div>
+    <!--/.Carousel Wrapper-->
+
+</div>
+
+<div style="width: 100%; margin-left: 4%;" >
+    <div class="mt-5" style="width: 46%; height: 370px; display: inline-block;" >
+        <iframe style="width: 100%; height: 100%;" src="https://www.youtube.com/embed/GrcBrxsjxKw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    <div class="mt-5" style="width: 46%; height: 370px; display: inline-block;">
+        <iframe style="width: 100%; height: 100%;" src="https://www.youtube.com/embed/3bvJPTnvzOs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+</div>
+
+
+
+<div class="container mb-5 mt-5">
+    <h3 style="color: #4a4a4a;">Sizler için seçtiklerimiz</h3>
+    @Html.Partial("_ProductList", Model)
+
+</div>
+
+
+

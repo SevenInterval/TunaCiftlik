@@ -1,0 +1,103 @@
+﻿@model TunaCiftlik.MvcWebUI.Models.OrderDetailsModel
+@using TunaCiftlik.MvcWebUI.Entity
+@{
+    ViewBag.Title = "Details";
+}
+
+<div class="container mb-5 mt-5">
+    <div class="row">
+        <div class="col-md-12">
+
+            <h2>Sipariş Detay Bilgileri</h2>
+            <hr />
+
+            <dl class="row">
+
+                <dt class="col-sm-3">Sipariş Durumu</dt>
+                <dd class="col-sm-9">
+                
+                @if(Model.OrderState == EnumOrderState.Waiting)
+                {
+                    <span class="badge-warning">Onay Bekliyor</span>
+                }
+                else if(Model.OrderState == EnumOrderState.Completed)
+                {
+                    <span class="badge-success">Sipariş Tamamlandı.</span>
+                }
+                else if(Model.OrderState == EnumOrderState.Cargo)
+                {
+                    <span class="badge-info">Kargoya Verildi.</span>
+                }
+                else if(Model.OrderState == EnumOrderState.Cancel)
+                {
+                    <span class="badge-danger">Sipariş İptal Edildi.</span>
+                }
+                </dd>
+
+                <dt class="col-sm-3">Sipariş Id</dt>
+                <dd class="col-sm-9">@Model.OrderId</dd>
+
+                <dt class="col-sm-3">Sipariş Numarası</dt>
+                <dd class="col-sm-9">@Model.OrderNumber</dd>
+
+                <dt class="col-sm-3">Toplam</dt>
+                <dd class="col-sm-9">@Model.Total.ToString("c")</dd>
+
+                <dt class="col-sm-3">Sipariş Tarihi</dt>
+                <dd class="col-sm-9">@Model.OrderDate</dd>
+
+                <dt class="col-sm-3">Adres</dt>
+                <dd class="col-sm-9">
+                    @Model.AdresBasligi
+                    <hr />
+                    @Model.Adres
+                    <br />
+                    @Model.Sehir  - @Model.Semt - @Model.Mahalle
+                    <br />
+                    @Model.PostaKodu
+            </dd>
+
+
+
+            <dt class="col-sm-3">Ürünler</dt>
+            <dd class="col-sm-9">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Ürün Adı</th>
+                            <th>Miktar</th>
+                            <th>Fiyat</th>
+                            <th style="width: 10%;"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.Orderlines)
+                {
+                    <tr>
+                        <td style="width: 20%;">
+                            <img src="~/Upload/@item.Image" style="width: 100%;" />
+                        </td>
+                        <td style="width: 30%; vertical-align: middle;">
+                            @item.ProductName
+                        </td>
+                        <td style="width: 20%; vertical-align: middle;">
+                            @item.Quantity
+                        </td>
+                        <td style="width: 13%; vertical-align: middle;">
+                            @item.Price.ToString("c")
+                        </td>
+                        <td style="width: 16%; vertical-align: middle;">
+                            <a href="/Home/Details/@item.ProductId" class="btn btn-primary btn-sm" target="_blank">
+                                <i class="fas fa-angle-double-right" aria-hidden="true"></i>Ürünü İncele
+                            </a>
+                        </td>
+                    </tr>
+        }
+                    </tbody>
+                </table>
+            </dd>
+            </dl>
+        </div>
+    </div>
+</div>
